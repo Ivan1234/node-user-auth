@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const mongoose = require('mongoose');
-const jwt = requre('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
 	email: {
@@ -44,3 +44,5 @@ userSchema.methods.generateJwt = function () {
 		exp: parseInt(expiry.getTime() / 1000),
 	}, 'MY_SECRET');
 }
+
+mongoose.model('User', userSchema);
